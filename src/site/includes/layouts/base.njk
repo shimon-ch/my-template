@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="{{ metadata.lang }}">
 	<head>
-		<meta charset="{{ metadata.charset }}" />
+		<meta charset="{{ metadata.encoding }}" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="{{ description }}" />
 		<title>{{ title }}</title>
-		<link rel="canonical" href="" />
+		<link rel="canonical" href="{{ metadata.siteUrl }}" />
 		<link rel="shortcut icon" type="image/png" href="/favicon.png" />
-		{% if manifest -%}
+		{%- if manifest -%}
 			{% for cssPath in manifest['src/scripts/main.ts'].css %}
 			<link rel="stylesheet" href="/{{ cssPath }}" />
-			{% endfor %}
+			{% endfor -%}
 			<script type="module" src="/{{ manifest['src/scripts/main.ts'].file }}"></script>
 		{% endif -%}
-
-		{% if environment === 'development' -%}
+		{%- if environment === 'development' -%}
 		<script type="module" src="/@vite/client"></script>
 		<script type="module" src="/src/scripts/main.ts"></script>
 		{% endif -%}
