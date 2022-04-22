@@ -8,7 +8,7 @@ module.exports = {
 	region: "JP",
 	scheme: "https",
 	sitemapPath: "/sitemap.xml",
-	siteTitle: "shifted",
+	siteTitle: "noname",
 	get siteUrl() {
 		return `${this.scheme}://${this.domain}`;
 	},
